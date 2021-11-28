@@ -31,6 +31,15 @@ export const home =
         description : "Je suis le seul lecteur à connaître la fin du monde...",
         img : image3,
         btn : "Acceder aux chapitres"
+    },
+
+    {
+        id : 4,
+        title : "Je sais pas",
+        description : "Je suis une description de qualité ...",
+        img : image3,
+        btn : "Acceder aux chapitres"
     }
+
 
 ]
