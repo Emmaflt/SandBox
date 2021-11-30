@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import './App.css';
-import Slider from "../components/Slider";
 
 // import Header from "components/Header";
 
@@ -17,9 +16,7 @@ function App() {
   return (
 
     <BrowserRouter>
-      <div>
-        <Slider />
-      </div>
+
 
       {/* <Header /> */}
 
@@ -60,3 +57,5 @@ function App() {
 }
 
 export default App;
+
+

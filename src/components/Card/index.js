@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Card.module.css";
-// import Card from 'components/Card'
-import { home } from "../data/cards.js";
+import BtnFav from "components/BtnFav";
+import { cards } from "components/data/cards.js";
 
 import { useHistory } from "react-router-dom";
 
@@ -20,18 +20,14 @@ const Card = ({ img, title, description, btn }) => {
       <button
         className={styles.card_btn}
         onClick={() => {
-          history.push("/manga-description");
-        }}
-        type="button"
-      >{btn}</button>
+          history.push("/manga-description");}}type="button">{btn}
+      </button>
+      {cards.map(({ id }) => (
+          <BtnFav id={id}/>
+          ))}
+      {/* <BtnFav id={id}/> */}
     </div>
   );
 };
 
-function CardWrapper() {
-  return home.map(({ img, title, btn, description }) => (
-    <Card img={img} title={title} btn={btn} description={description} />
-  ));
-}
-
-export default CardWrapper;
+export default Card;
