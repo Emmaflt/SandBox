@@ -1,55 +1,33 @@
-import React from 'react' 
-import { useState } from 'react';
-import { cards } from "../../components/data/cards.js";
+import React from "react";
+import styles from "./BtnFav.module.css";
+// import image100 from "../../img/heartempty.png";
+// import image101 from "../../img/heartviolet.png";
 
+import clsx from "clsx";
 
-const BtnFav = () => {
+import { ReactComponent as Icon } from './icon.svg'
 
-    let [favoris, setFavoris] = useState([]);
+const BtnFav = ({ isFaved, onClick }) => {
+  // console.log(styles)
+  return (
 
-    const addToFavorite = id => {
-      console.log('check addtofavorite');
-      const data = cards.find(item => item.id === id);
-      setFavoris([...favoris, data]);
-    };
-    
-    const deleteFromFavorite = id => {
-      console.log('check deletefromfavorite');
-      const erase = favoris.filter(item => item.id !== id);
-      setFavoris(erase);
-    };
-  
-    return (
-      <button onClick={favoris ? deleteFromFavorite : addToFavorite} type="button">{favoris ? "Enlever des favoris" : "Ajouter aux favoris"}</button>
-    )
-}
+    <div className={clsx(styles.icon, isFaved && styles.favoriteIcon)} >
+      <Icon type="button" onClick={onClick} />
+    </div>
 
-export default BtnFav
+    // <img className={styles.heartbtn} type="button" onClick={onClick} src={isFaved ? (image101) : (image100)}></img>
+   
+    // <p className={styles.hearty} type="button" onClick={onClick}>❤</p>
+    // <button className={styles.hearty} type="button">❤</button>
 
+    // <button className={styles.card_btn}
+    //   type="button"
+    //   onClick={onClick}
+    //   // style={{ backgroundColor: isFaved ? "green" : "white" }}
+    // >
+    //   {isFaved ? "Enlever des favoris" : "Ajouter aux favoris"}
+    // </button>
+  );
+};
 
-  // const addFavoris = id => {
-  //   this.setState(
-  //     {
-  //       addToFav: !this.addToFav
-  //     },
-  //     () => console.log(this.addToFav)
-  //   );
-
-  // }
-
-
-
-
-    // setFavoris(!favoris);
-    // localStorage.setItem("favoris", true);
-
-// render() {
-//   let list = data.map((obj) => {
-//      return <div key={obj.id} id={obj.id} onClick={() => this.handleClick(obj.id)}></div>         
-//   }
-//   return <div>{list}</div>;
-// }
-
-// handleClick(id){
-//  console.log(id);
-// }
+export default BtnFav;
